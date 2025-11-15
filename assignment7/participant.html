@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Coffee Corner | Customer List</title>
+  <link rel="styleshhet" href="">
+  <style>
+    body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  background: #FFF8F0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+    header {
+      background: #4B2E19; /* Dark coffee brown */
+      color: white;
+      padding: 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 24px;
+      letter-spacing: 1px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+    }
+
+    header button {
+      background: #C49A6C; /* Caramel */
+      color: #4B2E19;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: bold;
+    }
+
+    header button:hover {
+      background: #e4c7a3;
+    }
+
+    .container {
+      width: 90%;
+      margin: 30px auto;
+      text-align: center;
+    }
+
+    select {
+      padding: 10px;
+      border: 1px solid #C49A6C;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      font-size: 16px;
+      background: #fff;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #ffffff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    }
+
+    th, td {
+      border: 1px solid #C49A6C;
+      padding: 12px;
+      text-align: center;
+    }
+
+    th {
+      background: #EEDFCC;
+      color: #4B2E19;
+      font-size: 18px;
+    }
+
+   footer {
+  margin-top: auto; /* Pushes footer to bottom */
+}
+    @media (max-width: 600px) {
+      table, th, td {
+        font-size: 14px;
+        padding: 8px;
+      }
+      select {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div>☕ Coffee Corner – Customer List</div>
+    <button onclick="logout()">Logout</button>
+  </header>
+
+  <div class="container">
+    <h2>Select Menu Item</h2>
+
+    <select id="menuSelect" onchange="loadCustomers()">
+      <option value="">-- Choose Item --</option>
+      <option value="Cappuccino">Cappuccino</option>
+      <option value="Cold Coffee">Cold Coffee</option>
+      <option value="Black Coffee">Black Coffee</option>
+      <option value="Mocha">Mocha</option>
+      <option value="Chocolate Shake">Chocolate Shake</option>
+    </select>
+
+    <table id="customerTable">
+      <thead>
+        <tr>
+          <th>Customer Name</th>
+          <th>Email</th>
+          <th>Mobile</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td colspan="3">Please select an item to view customers.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <footer>
+    © 2025 Coffee Corner – All Rights Reserved
+  </footer>
+
+<script>
+  const customersData = {
+    "Cappuccino": [
+      { name: "Arjun Patil", email: "arjun@example.com", mobile: "9876543210" },
+      { name: "Riya Shah", email: "riya@example.com", mobile: "9823456781" }
+    ],
+    "Cold Coffee": [
+      { name: "Sandeep Kumar", email: "sandeep@example.com", mobile: "9756123488" },
+      { name: "Mira Jain", email: "mira@example.com", mobile: "9988776655" }
+    ],
+    "Black Coffee": [
+      { name: "Aakash Mehta", email: "aakash@example.com", mobile: "9123456789" }
+    ],
+    "Mocha": [
+      { name: "Divya Rao", email: "divya@example.com", mobile: "9812345678" },
+      { name: "Tushar Singh", email: "tushar@example.com", mobile: "9901234567" }
+    ],
+    "Chocolate Shake": [
+      { name: "Sneha Joshi", email: "sneha@example.com", mobile: "9098765432" },
+      { name: "Karan Nair", email: "karan@example.com", mobile: "9001122334" }
+    ]
+  };
+
+  // 👉 Step 1: Convert all customers into a single array
+  const allCustomers = Object.values(customersData).flat();
+
+  // 👉 Step 2: Show ALL customers on page load
+  window.onload = function () {
+    displayCustomers(allCustomers);
+  };
+
+  function loadCustomers() {
+    const itemName = document.getElementById("menuSelect").value;
+
+    if (!itemName) {
+      // If nothing selected → show all
+      displayCustomers(allCustomers);
+      return;
+    }
+
+    // If item selected → show specific customers
+    displayCustomers(customersData[itemName] || []);
+  }
+
+  // 👉 Reusable function to show customers in table
+  function displayCustomers(list) {
+    const tbody = document.querySelector("#customerTable tbody");
+    tbody.innerHTML = "";
+
+    if (!list || list.length === 0) {
+      tbody.innerHTML = "<tr><td colspan='3'>No customers found.</td></tr>";
+      return;
+    }
+
+    list.forEach(c => {
+      const row = `
+        <tr>
+          <td>${c.name}</td>
+          <td>${c.email}</td>
+          <td>${c.mobile}</td>
+        </tr>`;
+      tbody.innerHTML += row;
+    });
+  }
+
+  function logout() {
+    if (confirm("Are you sure you want to logout?")) {
+      window.location.href = "admin.html";
+    }
+  }
+</script>
+
+</body>
+</html>

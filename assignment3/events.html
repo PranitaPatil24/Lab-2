@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Registration | Coffee Corner Café</title>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+
+    body { background: #f9f3ef; color: #4b3832; }
+
+    nav {
+      background: #6f4e37; color: #fff;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 12px 30px;
+    }
+
+    nav ul { list-style: none; display: flex; gap: 15px; }
+    nav ul li a {
+      text-decoration: none; color: #fff; font-weight: bold;
+      padding: 5px 8px; border-radius: 4px;
+    }
+    nav ul li a:hover { background: #d7ccc8; color: #6f4e37; }
+
+    .page-title {
+      text-align: center; margin-top: 30px;
+      font-size: 28px; font-weight: bold; color: #6f4e37;
+    }
+
+    .registration {
+      width: 60%; margin: 30px auto; background: #fff;
+      padding: 35px; border-radius: 12px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    }
+
+    .registration h2 { text-align: center; color: #6f4e37; margin-bottom: 20px; }
+
+    .registration label { display: block; margin: 12px 0 5px; font-weight: bold; }
+
+    .registration input, .registration select {
+      width: 100%; padding: 10px;
+      border: 1px solid #ccc; border-radius: 6px;
+      font-size: 15px; margin-bottom: 18px;
+    }
+
+    .registration button {
+      display: block; width: 40%; margin: 0 auto;
+      padding: 12px; background: #6f4e37; color: #fff;
+      border: none; font-size: 17px; border-radius: 6px;
+      cursor: pointer;
+    }
+    .registration button:hover { background: #a67b5b; }
+
+    @media (max-width: 768px) {
+      .registration { width: 80%; }
+      .registration button { width: 60%; }
+    }
+
+    @media (max-width: 480px) {
+      .registration { width: 90%; padding: 20px; }
+      .page-title { font-size: 22px; }
+      .registration button { width: 80%; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <h1>☕ Coffee Corner</h1>
+    <ul>
+      <li><a href="home.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-title">Event Registration Form</div>
+
+  <section class="registration">
+    <h2>Fill Your Details</h2>
+
+      <form id="eventForm" onsubmit="validateForm(event)">
+
+      <label>Name:</label>
+      <input type="text" id="name" placeholder="Enter your name">
+
+      <label>Email:</label>
+      <input type="email" id="email" placeholder="Enter your email">
+
+      <label>Mobile Number:</label>
+      <input type="text" id="mobile" placeholder="Enter your mobile number">
+
+      <label>Select Event:</label>
+      <select id="event">
+        <option value="">--Choose an Event--</option>
+        <option>Live Jazz Night</option>
+        <option>Coffee Brewing Workshop</option>
+        <option>Cake Tasting Event</option>
+        <option>Art & Coffee Evening</option>
+        <option>Seasonal Special Launch</option>
+      </select>
+
+      <button type="submit">Register</button>
+    </form>
+  </section>
+
+  <script>
+  
+  function validateForm(event) {
+    event.preventDefault(); // stop form reload
+
+    const nameVal   = document.getElementById("name").value.trim();
+    const emailVal  = document.getElementById("email").value.trim();
+    const mobileVal = document.getElementById("mobile").value.trim();
+    const eventVal  = document.getElementById("event").value;
+
+    if (!nameVal) {
+      alert("Enter name");
+      return false;
+    }
+
+    if (!/^[^ ]+@[^ ]+\.[a-z]{2,3}$/.test(emailVal)) {
+      alert("Invalid email");
+      return false;
+    }
+
+    if (!/^[0-9]{10}$/.test(mobileVal)) {
+      alert("Enter 10-digit mobile");
+      return false;
+    }
+
+    if (!eventVal) {
+      alert("Select an event");
+      return false;
+    }
+
+    alert("Registration Successful!");
+    return true;
+  }
+   
+  </script>
+
+</body>
+</html>

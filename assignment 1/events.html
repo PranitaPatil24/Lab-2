@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Events | Coffee Corner Café</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+   
+    body {
+  background: #f9f3ef;
+  color: #4b3832;
+  min-height: 100vh;        /* IMPORTANT */
+  display: flex;            /* IMPORTANT */
+  flex-direction: column;   /* Helps footer go bottom */
+}
+
+    /* Navbar */
+    nav {
+      background: #6f4e37;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 30px;
+    }
+
+    nav h1 {
+      font-size: 24px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 15px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: bold;
+      padding: 5px 8px;
+      border-radius: 4px;
+    }
+
+    nav ul li a:hover {
+      background: #d7ccc8;
+      color: #6f4e37;
+    }
+
+    /* Events Section */
+    .events {
+      width: 80%;
+      margin: 50px auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .events h2 {
+      text-align: center;
+      color: #6f4e37;
+      margin-bottom: 25px;
+    }
+
+    .events ul {
+      list-style: disc inside;
+    }
+
+    .events ul li {
+      font-size: 16px;
+      margin: 10px 0;
+      line-height: 1.5;
+    }
+
+    /* Events Table */
+.event-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.event-table th {
+  background: #6f4e37;
+  color: white;
+  padding: 12px;
+  font-size: 18px;
+}
+
+.event-table td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+  font-size: 16px;
+  color: #4b3832;
+}
+
+.event-table tr:hover {
+  background: #f1e6dc;
+}
+footer {
+  margin-top: auto;        /* Pushes footer to the bottom */
+  text-align: center;
+  background: #6f4e37;
+  color: #fff;
+  padding: 15px;
+}
+
+  </style>
+</head>
+<body>
+
+  <nav>
+    <h1>☕ Coffee Corner</h1>
+    <ul>
+      <li><a href="home.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Events Section -->
+  <section class="events">
+  <h2>Upcoming Events</h2>
+
+  <table class="event-table">
+    <tr>
+      <th>Event Name</th>
+      <th>Date</th>
+      <th>Café Location</th>
+    </tr>
+
+    <tr>
+      <td>🎵 Live Jazz Night</td>
+      <td>Every Friday, 7 PM</td>
+      <td>Main Branch – City Center</td>
+    </tr>
+
+    <tr>
+      <td>☕ Coffee Brewing Workshop</td>
+      <td>1st Saturday of the Month</td>
+      <td>Workshop Hall – Coffee Corner</td>
+    </tr>
+
+    <tr>
+      <td>🍰 Cake Tasting Event</td>
+      <td>15th of Every Month</td>
+      <td>Bakery Lounge – Coffee Corner</td>
+    </tr>
+
+    <tr>
+      <td>🎨 Art & Coffee Evening</td>
+      <td>3rd Thursday, 6 PM</td>
+      <td>Creative Room – Coffee Corner</td>
+    </tr>
+
+    <tr>
+      <td>🌿 Seasonal Special Launch</td>
+      <td>Check café board</td>
+      <td>Main Branch – Coffee Corner</td>
+    </tr>
+  </table>
+</section>
+
+  <footer>© 2025 Coffee Corner Café | All Rights Reserved</footer>
+
+</body>
+</html>

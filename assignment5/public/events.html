@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Registration | Coffee Corner</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f3ef;
+      color: #4b3832;
+      padding: 20px;
+    }
+    .registration {
+      width: 80%;
+      margin: 50px auto;
+      background: #fff;
+      padding: 20px 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .registration h2 {
+      text-align: center;
+      color: #6f4e37;
+      margin-bottom: 20px;
+    }
+    label { display:block; margin:10px 0 5px; font-weight:bold; }
+    input, select {
+      width:100%;
+      padding:8px;
+      margin-bottom:12px;
+      border:1px solid #ccc;
+      border-radius:5px;
+    }
+    button {
+      display:block;
+      margin:0 auto;
+      padding:10px 25px;
+      background:#6f4e37;
+      color:#fff;
+      border:none;
+      border-radius:5px;
+      cursor:pointer;
+    }
+    button:hover { background:#a67b5b; }
+  </style>
+</head>
+<body>
+
+  <section class="registration">
+    <h2>Register for an Event</h2>
+
+    <!-- FIXED FORM ACTION + ADDED ID -->
+    <form action="/register" method="POST" id="eventForm">
+
+      <label>Name:</label>
+      <input type="text" id="name" name="name">
+
+      <label>Email:</label>
+      <input type="email" id="email" name="email">
+
+      <label>Mobile:</label>
+      <input type="text" id="mobile" name="mobile">
+
+      <label>Select Event:</label>
+      <select id="event" name="event">
+        <option value="">--Choose an Event--</option>
+        <option>Live Jazz Night</option>
+        <option>Coffee Brewing Workshop</option>
+        <option>Cake Tasting Event</option>
+        <option>Art & Coffee Evening</option>
+        <option>Seasonal Special Launch</option>
+      </select>
+
+      <button type="submit">Register</button>
+    </form>
+
+  </section>
+
+  <script>
+    // FIXED — eventForm now exists
+    document.getElementById('eventForm').addEventListener('submit', function(e){
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const mobile = document.getElementById('mobile').value.trim();
+      const event = document.getElementById('event').value;
+
+      if(!name){ alert("Enter your name"); e.preventDefault(); return;}
+      if(!/^[^ ]+@[^ ]+\.[a-z]{2,3}$/.test(email)){ alert("Enter valid email"); e.preventDefault(); return;}
+      if(!/^[0-9]{10}$/.test(mobile)){ alert("Enter 10-digit mobile number"); e.preventDefault(); return;}
+      if(!event){ alert("Select an event"); e.preventDefault(); return;}
+    });
+  </script>
+
+</body>
+</html>
+
+<!-- installation
+https://nodejs.org/en/download
+
+Double-click the .msi file → follow the steps:
+
+Click Next
+
+Accept License Agreement
+
+Choose Destination Folder (default is fine)
+
+Keep all components selected:
+
+Node.js runtime
+
+npm package manager
+
+Add to PATH (important)
+
+Click Install
+
+Wait until installation finishes.
+
+add path C:\Program Files\nodejs
+node -v
+npm -v
+
+
+npm install mongoose
+
+commands
+npm init -y
+npm install express mongoose body-parser
+node server.js
+Open browser: http://localhost:3000/event.html
+
+
+-->

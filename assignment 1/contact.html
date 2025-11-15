@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Coffee Corner Café</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+  background: #f9f3ef;
+  color: #4b3832;
+  min-height: 100vh;        /* IMPORTANT */
+  display: flex;            /* IMPORTANT */
+  flex-direction: column;   /* Helps footer go bottom */
+}
+
+    /* Navbar */
+    nav {
+      background: #6f4e37;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 30px;
+    }
+
+    nav h1 {
+      font-size: 24px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 15px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: bold;
+      padding: 5px 8px;
+      border-radius: 4px;
+    }
+
+    nav ul li a:hover {
+      background: #d7ccc8;
+      color: #6f4e37;
+    }
+
+    /* Contact Section */
+    .contact {
+      width: 70%;
+      margin: 50px auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .contact h2 {
+      text-align: center;
+      color: #6f4e37;
+      margin-bottom: 20px;
+    }
+
+    .contact form label {
+      display: block;
+      margin: 10px 0 5px;
+    }
+
+    .contact form input,
+    .contact form textarea {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+
+    .contact form textarea {
+      height: 80px;
+      resize: none;
+    }
+
+    .contact form button {
+      display: block;
+      margin: 15px auto 0;
+      padding: 8px 20px;
+      background: #6f4e37;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .contact form button:hover {
+      background: #a67b5b;
+    }
+footer {
+  margin-top: auto;        /* Pushes footer to the bottom */
+  text-align: center;
+  background: #6f4e37;
+  color: #fff;
+  padding: 15px;
+}
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <h1>☕ Coffee Corner</h1>
+    <ul>
+      <li><a href="home.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="events.html">Events</a></li>
+    </ul>
+  </nav>
+
+  <!-- Contact Section -->
+  <section class="contact">
+    <h2>Contact Us</h2>
+    <form>
+      <label for="name">Name:</label>
+      <input type="text" id="name" placeholder="Your Name" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" placeholder="Your Email" required>
+
+      <label for="message">Message:</label>
+      <textarea id="message" placeholder="Your Message" required></textarea>
+
+      <button type="submit">Send</button>
+    </form>
+  </section>
+
+   <footer>© 2025 Coffee Corner Café | All Rights Reserved</footer>
+
+</body>
+</html>

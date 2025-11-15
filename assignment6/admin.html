@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Login | E-Waste Management</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f5fff7;
+    }
+
+    nav {
+      background: #6f4e37;
+      padding: 15px;
+      color: white;
+      text-align: center;
+      font-weight: bold;
+      font-size: 22px;
+    }
+
+    .login-container {
+      width: 350px;
+      margin: 80px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    h2 {
+      color: #6f4e37;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      width: 95%;
+      background: #6f4e37;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #6f4e37;
+    }
+
+    .error {
+      color: red;
+      margin-top: 10px;
+    }
+
+    footer {
+      text-align: center;
+      background: #6f4e37;
+      color: white;
+      padding: 10px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>☕Coffee corner admin portal</nav>
+
+  <div class="login-container">
+    <h2>Admin Login</h2>
+    <input type="text" id="username" placeholder="Enter Username">
+    <input type="password" id="password" placeholder="Enter Password">
+    <button onclick="login()">Login</button>
+    <p id="error" class="error"></p>
+  </div>
+
+  <footer>© 2025 E-Waste Management | Admin Portal</footer>
+
+  <script>
+    function login() {
+      let user = document.getElementById("username").value;
+      let pass = document.getElementById("password").value;
+      let error = document.getElementById("error");
+
+      if (user === "admin" && pass === "12345") {
+        window.location.href = "dashboard.html";
+      } else {
+        error.textContent = "Invalid username or password!";
+      }
+    }
+  </script>
+
+</body>
+</html>
